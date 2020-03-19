@@ -95,9 +95,8 @@
                 </div>
                 <div class="col-12 col-sm-3">
                     <p style="padding-left: 5px;"></p>
-                    <a type="button" class="btn-sm btn btn-warning btn-sm btn-block" data-toggle="tooltip" data-html="true"
-                        title="Or Call us at <br><strong>+ 987 6543 2100</strong>" data-placement="bottom"
-                        href="#reserve-form">
+                    <a type="button" class="btn-sm btn btn-warning btn-sm btn-block" data-toggle="modal"
+                        data-target="#reserve" href="#reserve-form">
                         Reserve your baskets
                     </a>
                 </div>
@@ -216,12 +215,14 @@
                 </div>
             </div>
         </div>
-        <div class="row row-content justify-content-center">
-            <div class="col-12 col-sm-8">
-                <div class="card border-default">
-                    <h3 class="card-header bg-warning text-white" id="reservation"
-                        style="background-color: rgb(255, 217, 0);"> Reserve your Baskets </h3>
-                    <div class="card-body">
+        <div id="reserve" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-lg" role="content">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Reserve your Baskets</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times</button>
+                    </div>
+                    <div class="modal-body">
                         <form id="reserve-form">
                             <div class="form-group row">
                                 <label for="optradio" class="col-12 col-sm-3 col-form-label">
@@ -279,8 +280,24 @@
                                     <input type="time" class="form-control" id="time" name="time">
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm col-sm-offset-2">Reserve</button>
+                            <div class="form-group row">
+                                <label for="section" class="col-12 col-sm-3 col-form-label">Home Delivery</label>
+                                <div class="col-sm-9">
+                                    <div class="btn-group" data-toggle="buttons">
+                                        <label class="btn btn-success active">
+                                            <input type="radio" name="section" id="non-home-delivery" autocomplete="off" checked> Yes
+                                        </label>
+                                        <label class="btn btn-danger">
+                                            <input type="radio" name="section" id="home-delivery" autocomplete="off"> No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
                         </form>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary btn-sm col-sm-offset-2">Submit</button>
+                            <button type="button" class="btn btn-default btn-sm col-sm-offset-2" data-dismiss="modal">Cancel</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -343,12 +360,10 @@
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script>
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-        $(function () {
-            $('#datetimepicker1').datetimepicker();
-        });                           
+        // $(function () {
+        //     $('[data-toggle="tooltip"]').tooltip()
+        // })
+
     </script>
 </body>
 
